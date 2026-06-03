@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JRI ImpEx | Premium Agri Exports from India</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; color: #222; scroll-behavior: smooth; }
+
+    /* TOP BAR */
+    .topbar {
+      background: #2d5a27;
+      color: #fff;
+      padding: 8px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .topbar a { color: #fff; text-decoration: none; margin-left: 20px; }
+    .topbar a:hover { color: #c8e6c9; }
+
+    /* NAV */
+    nav {
+      background: #1a1a1a;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      color: #fff;
+      font-size: 22px;
+      font-family: Georgia, serif;
+      letter-spacing: 1px;
+    }
+    .nav-logo span { color: #6abf69; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    .nav-links a:hover { color: #6abf69; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 560px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('onion-export.jpg') center/cover no-repeat;
+      filter: brightness(0.4);
+    }
+    .hero-content { position: relative; color: #fff; padding: 20px; }
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #a5d6a7;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .hero h1 { font-size: 52px; margin-bottom: 16px; line-height: 1.2; }
+    .hero p { font-size: 18px; color: #ddd; margin-bottom: 32px; }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline {
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 13px 32px;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+    .btn-outline:hover { background: #fff; color: #1a1a1a; }
+    .btn-green {
+      background: #25D366;
+      color: #fff;
+      padding: 13px 32px;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      border: none;
+    }
+    .btn-green:hover { background: #1ebe5d; }
+    .btn-dark {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 12px 28px;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin: 4px;
+    }
+
+    /* SECTIONS */
+    section { padding: 64px 80px; }
+    section:nth-child(even) { background: #f9f9f9; }
+    h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+    .section-sub {
+      font-size: 13px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: #2d5a27;
+      margin: 12px 0 32px;
+    }
+    p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 10px; }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: #2d5a27;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      padding: 32px 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 32px; font-weight: bold; }
+    .stat-label { font-size: 12px; letter-spacing: 2px; color: #a5d6a7; margin-top: 4px; }
+
+    /* PRODUCT CARDS */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 8px;
+    }
+    .product-card { border: 1px solid #e8e8e8; background: #fff; overflow: hidden; }
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .product-info { padding: 24px; }
+    .product-info h3 { font-size: 18px; margin-bottom: 8px; color: #1a1a1a; }
+    .product-info p { font-size: 13px; color: #777; margin-bottom: 16px; }
+    .product-tag {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2d5a27;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin: 2px;
+      letter-spacing: 1px;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* EXPORT COUNTRIES */
+    .country-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .country-tag {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 8px 20px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    /* HOW TO ORDER */
+    .steps { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+    .step {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+      padding: 28px 20px;
+      border: 1px solid #e8e8e8;
+    }
+    .step-num {
+      width: 44px; height: 44px;
+      background: #2d5a27;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 15px; margin-bottom: 8px; color: #1a1a1a; }
+
+    /* CONTACT */
+    .contact-grid { display: flex; gap: 40px; flex-wrap: wrap; margin-top: 8px; }
+    .contact-info { flex: 1; min-width: 240px; }
+    .contact-why { flex: 1; min-width: 240px; background: #1a1a1a; padding: 36px; }
+    .contact-why h3 { color: #fff; font-size: 18px; margin-bottom: 20px; }
+    .contact-why p { color: #aaa; margin-bottom: 12px; }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      background: #25D366;
+      color: #fff;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 28px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    footer span { color: #6abf69; }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      section { padding: 40px 20px; }
+      .hero h1 { font-size: 32px; }
+      nav { padding: 14px 20px; }
+      .topbar { display: none; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div>🌿 Premium Agricultural Exports from India</div>
+    <div>
+      <a href="mailto:impexjri@gmail.com">✉ impexjri@gmail.com</a>
+      <a href="https://wa.me/916369051710">💬 +91 6369051710</a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">JRI <span>ImpEx</span></div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#exports">Exports</a>
+      <a href="#order">How to Order</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Farm Fresh · Export Quality · Worldwide</div>
+      <h1>JRI ImpEx</h1>
+      <p>Premium Agricultural Exports from India to the World</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-outline">OUR PRODUCTS</a>
+        <a href="https://wa.me/916369051710" class="btn-green" target="_blank">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">🧅</div>
+      <div class="stat-label">Fresh Onion Export</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">🥥</div>
+      <div class="stat-label">Coconut Export</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">🌍</div>
+      <div class="stat-label">Worldwide Delivery</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">📦</div>
+      <div class="stat-label">Bulk Orders Welcome</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-sub">Who We Are</div>
+    <h2>About JRI ImpEx</h2>
+    <div class="divider"></div>
+    <div style="display:flex; gap:60px; flex-wrap:wrap;">
+      <div style="flex:2; min-width:260px;">
+        <p>JRI ImpEx is a registered agricultural export company based in India, specializing in sourcing and exporting premium quality farm produce to international markets worldwide.</p>
+        <p>We export fresh vegetables and agri commodities including onions and coconuts — ensuring export grade quality, proper documentation, and timely delivery to buyers across the globe.</p>
+        <p>With direct connections to farmers and a strong logistics network, we deliver farm-fresh produce that meets international quality standards and buyer specifications.</p>
+        <br>
+        <a href="#contact" class="btn-dark">Enquire Now</a>
+        <a href="https://wa.me/916369051710" class="btn-green" target="_blank" style="display:inline-block; padding:12px 28px; margin:4px;">💬 WhatsApp</a>
+      </div>
+      <div style="flex:1; min-width:200px; display:flex; flex-direction:column; gap:20px;">
+        <div style="border-left:4px solid #2d5a27; padding-left:20px;">
+          <div style="font-size:15px; font-weight:bold; color:#1a1a1a;">✅ IEC Registered</div>
+          <div style="font-size:12px; color:#888;">Import Export Code — Govt. of India</div>
+        </div>
+        <div style="border-left:4px solid #2d5a27; padding-left:20px;">
+          <div style="font-size:15px; font-weight:bold; color:#1a1a1a;">✅ GST Registered</div>
+          <div style="font-size:12px; color:#888;">Registered Business Entity</div>
+        </div>
+        <div style="border-left:4px solid #2d5a27; padding-left:20px;">
+          <div style="font-size:15px; font-weight:bold; color:#1a1a1a;">✅ Direct Farm Sourcing</div>
+          <div style="font-size:12px; color:#888;">Fresh produce from Indian farms</div>
+        </div>
+        <div style="border-left:4px solid #2d5a27; padding-left:20px;">
+          <div style="font-size:15px; font-weight:bold; color:#1a1a1a;">✅ Export Documentation</div>
+          <div style="font-size:12px; color:#888;">Full compliance & paperwork handled</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="section-sub">What We Export</div>
+    <h2>Our Products</h2>
+    <div class="divider"></div>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="onion1.jpg" alt="Fresh Red Onion Export">
+        <div class="product-info">
+          <h3>🧅 Fresh Red Onion</h3>
+          <p>Premium Indian red onions, export grade quality. Available in bulk quantities for international buyers.</p>
+          <span class="product-tag">Export Grade</span>
+          <span class="product-tag">Bulk Available</span>
+          <span class="product-tag">Year Round</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="onion2.jpg" alt="Small Onion Shallots Export">
+        <div class="product-info">
+          <h3>🧅 Small Onion (Shallots)</h3>
+          <p>Fresh Indian shallots and small onions, highly demanded in Southeast Asian and Middle East markets.</p>
+          <span class="product-tag">High Demand</span>
+          <span class="product-tag">Premium Quality</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="coconut1.jpg" alt="Fresh Coconut Export">
+        <div class="product-info">
+          <h3>🥥 Fresh Coconut</h3>
+          <p>Semi husked and fully husked fresh coconuts sourced directly from South Indian farms.</p>
+          <span class="product-tag">Semi Husked</span>
+          <span class="product-tag">Fully Husked</span>
+          <span class="product-tag">CIF Available</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="section-sub">Our Products</div>
+    <h2>Gallery</h2>
+    <div class="divider"></div>
+    <div class="gallery-grid">
+      <img src="onion1.jpg" alt="Red Onion">
+      <img src="onion2.jpg" alt="Small Onion">
+      <img src="onion-export.jpg" alt="Onion Export Container">
+      <img src="coconut1.jpg" alt="Fresh Coconut">
+      <img src="coconut2.jpg" alt="Semi Husked Coconut">
+      <img src="coconut3.jpg" alt="Coconut Export">
+    </div>
+  </section>
+
+  <!-- EXPORT COUNTRIES -->
+  <section id="exports">
+    <div class="section-sub">Where We Ship</div>
+    <h2>Export Destinations</h2>
+    <div class="divider"></div>
+    <p>We export to buyers across the Middle East, Southeast Asia, Europe and beyond. Available on CIF / FOB / EXW terms.</p>
+    <div class="country-grid">
+      <div class="country-tag">🇦🇪 UAE</div>
+      <div class="country-tag">🇸🇦 Saudi Arabia</div>
+      <div class="country-tag">🇶🇦 Qatar</div>
+      <div class="country-tag">🇰🇼 Kuwait</div>
+      <div class="country-tag">🇧🇭 Bahrain</div>
+      <div class="country-tag">🇴🇲 Oman</div>
+      <div class="country-tag">🇲🇾 Malaysia</div>
+      <div class="country-tag">🇸🇬 Singapore</div>
+      <div class="country-tag">🇱🇰 Sri Lanka</div>
+      <div class="country-tag">🇧🇩 Bangladesh</div>
+      <div class="country-tag">🇲🇻 Maldives</div>
+      <div class="country-tag">🇬🇧 United Kingdom</div>
+    </div>
+  </section>
+
+  <!-- HOW TO ORDER -->
+  <section id="order">
+    <div class="section-sub">Simple Process</div>
+    <h2>How to Order</h2>
+    <div class="divider"></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Contact Us</h3>
+        <p>Reach us via WhatsApp or email with your product requirement and quantity.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Get Quote</h3>
+        <p>We send you the best price with product specifications and shipping terms.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Confirm Order</h3>
+        <p>Confirm quantity, packaging, and delivery port. We handle all documentation.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Delivery</h3>
+        <p>Fresh produce packed and shipped to your port on time with full export documents.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-sub">Reach Us</div>
+    <h2>Contact Us</h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>📧 impexjri@gmail.com</p>
+        <p>📱 +91 6369051710</p>
+        <p>🌍 Available for international trade inquiries</p>
+        <p>⏰ Response within 24 hours</p>
+        <br>
+        <a href="mailto:impexjri@gmail.com" class="btn-dark">Send Email</a>
+        <a href="https://wa.me/916369051710" class="btn-green" target="_blank" style="display:inline-block; padding:12px 28px; margin:4px;">💬 WhatsApp</a>
+      </div>
+      <div class="contact-why">
+        <h3>Why Work With Us?</h3>
+        <p>✅ Direct Farm to Port Sourcing</p>
+        <p>✅ Export Grade Quality Guaranteed</p>
+        <p>✅ Full Documentation Handled</p>
+        <p>✅ Competitive Pricing</p>
+        <p>✅ Reliable & On-Time Delivery</p>
+        <p>✅ Experienced in Foreign Client Handling</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 <span>JRI ImpEx</span>. All Rights Reserved. | Premium Agricultural Exports from India
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/916369051710" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+</body>
+</html>
